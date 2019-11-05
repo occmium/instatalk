@@ -1,0 +1,10 @@
+development:
+  adapter: async
+
+test:
+  adapter: async
+
+production:
+  adapter: redis
+  url: redis://redistogo:8cf28536e4e535a2d47ba2bc0f648f37@tarpon.redistogo.com:11212/
+  channel_prefix: instatalk_production
