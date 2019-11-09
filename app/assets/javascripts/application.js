@@ -21,4 +21,10 @@ $(function() {
 
 $(document).on("turbolinks:load", function() {
   console.log('Document is loaded (turbolinks:load)');
-})
+});
+
+// метод для прокручивания содержимого вниз
+function scrollBottom(messages){
+  console.log('messages: ' + messages)
+  messages.scrollTop = messages.scrollHeight
+}

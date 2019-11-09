@@ -3,19 +3,20 @@ class AppearanceChannel < ApplicationCable::Channel
     stream_from "appearance_channel"
 
     if current_user
-      ActionCable.server.broadcast "appearance_channel",
-                                   { user: current_user.id, online: :on }
-      current_user.online = true
-      current_user.save!
+      current_user.update_attribute(:online, true)
+      broadcast_online_users
     end
   end
 
   def unsubscribed
     if current_user
-      ActionCable.server.broadcast "appearance_channel",
-                                   { user: current_user.id, online: :off }
-      current_user.online = false
-      current_user.save!
+      current_user.update_attribute(:online, false)
+      broadcast_online_users
     end
+  end
+
+  def broadcast_online_users
+    online_users = User.where(online: true)
+    ActionCable.server.broadcast "appearance_channel", { online_users: online_users.as_json }
   end
 end
