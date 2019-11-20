@@ -1,24 +1,57 @@
-# README
+<a name="to_lift"><h3>InstaTalk</h3></a>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### Приложение-чат.
+Простой чат, не требующий регистрации. Заходим и пользуемся, даже псевдоним писать не требуется!
 
-Things you may want to cover:
+Приложение ["Призываю к диалогу!"](https://instatalkoccmium.herokuapp.com/)
 
-* Ruby version
+Учебное приложение из серии уроков онлайн-курса по RubyOnRals
 
-* System dependencies
+[Ruby on Rails](https://goodprogrammer.ru/rails) — Тот самый онлайн-интенсив.
 
-* Configuration
+#### Содержание
+  - *[Описание](#description)*
+  - *[Функционал](#update)*
+  - *[Использование](#use)*
+  - *[Требования](#version)*
 
-* Database creation
+<a name="description"><h4>Описание</h4></a>
 
-* Database initialization
+Это Rails-приложение, которое предоставляет простой функционал обыкновенного чата
 
-* How to run the test suite
+[Наверх](#to_lift)
 
-* Services (job queues, cache servers, search engines, etc.)
+<a name="update"><h4>Функционал</h4></a>
+  + псевдоним генерируется автоматически с помощью гема Faker 
+  + определенные GET-запросы, обрабатываются с помощью специального JS-кода — turbolinks.js. Вместо браузерного запроса, шлётся AJAX-запрос на сервер. Гем Turbolinks вставляет на страницу полученный HTML от сервера.   
+  + реализовано общение сервера и клиента по протоколу WebSocket
+  + для ускорения обработки запросов на сервере использован адаптер NoSQL базы данных Redis
+  
+[Наверх](#to_lift)
 
-* Deployment instructions
+<a name="use"><h4>Использование</h4></a>
 
-* ...
+Чтобы запустить приложение локально, у Вас на компьютере должен быть установлен интерпретатор [Ruby](https://rubyinstaller.org/). Нужно вызвать консоль (если Вы используете Windows) или терминал (если Вы используете MacOS). Вам потребуется менеджер библиотек.
+  + скопируйте программу из репозитория: `$ git clone https://github.com/occmium/instatalk.git`
+
+  + перейдите в папку с программой: `$ cd instatalk`
+  
+  + для установки менеджера библиотек введите в терминале `$ gem install bundler` и нажмите `Enter`
+  
+  + для запуска менеджера библиотек введите в терминале `$ bundle` и нажмите `Enter`
+  
+  + для первичной настройки базы данных введите в терминале `$ bundle exec rake db:migrate` и нажмите `Enter`
+  
+  + для старта сервера на локальной машине введите в терминале `$ bundle exec rails s` и нажмите `Enter`
+  
+  + для запуска приложения введите в поисковой строке веб-браузера `http://localhost:3000/` и нажмите `Enter`
+  
+[Наверх](#to_lift)
+<a name="version"><h4>Требования</h4></a>
+
+program|version
+:---:|:---:
+Ruby|2.5.5p157
+Rails|5.1.4
+
+[Наверх](#to_lift)
